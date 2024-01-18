@@ -4,7 +4,14 @@ document.addEventListener("click", function(event) {
 
     fetch("<https://official-joke-api.appspot.com/random_joke>")   //fetch the api to request the joke endpoint
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => renderJoke(data));
 });
+
+function renderJoke(data) {                                      //render the joke and pass it to the new function (html)
+    const setup = document.getElementById("setup");
+    const punchline = document.getElementById("punchline");
+    setup.innerHTML = data.setup;
+    punchline.innerHTML = data.punchline;
+}
 
 
