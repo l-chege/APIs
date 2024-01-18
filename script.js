@@ -9,12 +9,16 @@ document.addEventListener("click", function(event) {
 });
 
 function renderJoke(data) {                                      //render the joke and pass it to the new function (html)
+    //get text elements
     const setup = document.getElementById("setup");
     const punchline = document.getElementById("punchline");
     const error = document.getElementById("error");              //clear out error message if user tries again and request succeeds
+    
+    //hide error and render jokes
+    error.innerHTML = "";
     setup.innerHTML = data.setup;
     punchline.innerHTML = data.punchline;
-    error.innerHTML = "";
+    
 }
 
 function renderError() {                                       //render the error message if the api is not working to add a message to HTML element
